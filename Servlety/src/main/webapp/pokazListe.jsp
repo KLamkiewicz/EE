@@ -15,8 +15,13 @@ for(Osoba o : przechowalniaLudzi.getLudzie()){
 	out.println("<p> Imie: "+o.getImie() +"<br>" );
 	out.println(" Nazwisko: " +o.getNazwisko()+"<br>");
 	out.println("Plec: " + o.getPlec()+"<p>");
-	out.println("<p>" + o.getSporty());
-	out.println( o.getUwagi()+"<p>");
+	out.println("<p>Sporty:"+"<br>");
+	for(String sport: o.getSporty()){
+		out.println(sport);
+		out.println("<br>");
+	}
+	out.println("<br>Uwagi: ");
+	out.println("<br>"+ o.getUwagi()+"<p>");
 	out.println("<br><hr>");
 }
 %><br>
