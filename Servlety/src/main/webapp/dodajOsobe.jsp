@@ -11,14 +11,29 @@
 <jsp:useBean id="przechowalniaLudzi" class="pl.Servlet.service.PrzechowalniaLudzi" scope="application"/>
 <jsp:setProperty name="osoba" property="*" /> 
 
-	<%osoba.setPlec(request.getParameter("plec")) ;%>
 	<%osoba.addSport(request.getParameterValues("sport")); %>
+	<%osoba.addKwiatki(request.getParameterValues("kwiaty")); %>
 	<%przechowalniaLudzi.add(osoba);%>
 	
 	<h3>Dodano osobe!</h3><br>
 	<b>Imie:</b> ${osoba.getImie()} <br>
 	<b>Nazwisko:</b> ${osoba.getNazwisko()} <br>
-	<b>Plec:</b>${osoba.getPlec()}<br>
+	<b>Plec:</b>${osoba.getPlec()}<br><br>
+	<b>Ulubione sporty: </b><br>
+		<%	
+			int size = przechowalniaLudzi.getLudzie().size();
+			for(String s: przechowalniaLudzi.getLudzie().get(size-1).getSporty()){
+				out.println(s+"<br>");
+			}
+				
+		%><br>
+	<b>Ulubione kwiatki:</b><br>
+			<%	
+			for(String s: przechowalniaLudzi.getLudzie().get(size-1).getKwiatki()){
+				out.println(s+"<br>");
+			}
+				
+		%><br>
 	<b>Uwagi:</b> ${osoba.getUwagi()}<br>
 	<br>
 	<br>

@@ -9,6 +9,7 @@ public class Osoba {
 	private String uwagi;
 	private String plec;
 	private List<String> sporty = new ArrayList<String>();
+	private List<String> kwiatki = new ArrayList<String>();
 	
 	public Osoba(){
 		
@@ -59,7 +60,19 @@ public class Osoba {
 	public void setSporty(List<String> sporty) {
 		this.sporty = sporty;
 	}
+
+	public List<String> getKwiatki() {
+		return kwiatki;
+	}
+
+	public void addKwiatki(String[] kwiatki){
+		for(String s: kwiatki){
+			this.kwiatki.add(s);
+		}
+	}
 	
-	
+	public void setKwiatki(List<String> kwiatki) {
+		this.kwiatki = kwiatki;
+	}
 	
 }
