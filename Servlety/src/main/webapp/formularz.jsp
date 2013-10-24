@@ -10,6 +10,7 @@
 <jsp:useBean id="osoba" class="pl.Servlet.domain.Osoba" scope="session" />
 <%osoba.setSporty(new String[4]);%>
 <%osoba.setKwiatki(new String[4]);%>
+
 	<form action = "sprawdzenie.jsp">
 		<h2 align = "center"> Formularz osobowy </h2><br><br>
 		
