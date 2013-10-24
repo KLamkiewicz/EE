@@ -11,8 +11,6 @@
 <jsp:useBean id="przechowalniaLudzi" class="pl.Servlet.service.PrzechowalniaLudzi" scope="application"/>
 <jsp:setProperty name="osoba" property="*" /> 
 
-	<%osoba.addSport(request.getParameterValues("sport")); %>
-	<%osoba.addKwiatki(request.getParameterValues("kwiaty")); %>
 	<%przechowalniaLudzi.add(osoba);%>
 	
 	<h3>Dodano osobe!</h3><br>
@@ -23,6 +21,7 @@
 		<%	
 			int size = przechowalniaLudzi.getLudzie().size();
 			for(String s: przechowalniaLudzi.getLudzie().get(size-1).getSporty()){
+				if(s!=null)
 				out.println(s+"<br>");
 			}
 				
@@ -30,6 +29,7 @@
 	<b>Ulubione kwiatki:</b><br>
 			<%	
 			for(String s: przechowalniaLudzi.getLudzie().get(size-1).getKwiatki()){
+				if(s!=null)
 				out.println(s+"<br>");
 			}
 				

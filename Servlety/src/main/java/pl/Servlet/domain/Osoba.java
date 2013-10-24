@@ -8,8 +8,10 @@ public class Osoba {
 	private String nazwisko;
 	private String uwagi;
 	private String plec;
-	private List<String> sporty = new ArrayList<String>();
-	private List<String> kwiatki = new ArrayList<String>();
+	//private List<String> sporty = new ArrayList<String>();
+	//private List<String> kwiatki = new ArrayList<String>();
+	private String[] sporty = new String[4];
+	private String[] kwiatki = new String[4];
 	
 	public Osoba(){
 		
@@ -47,31 +49,19 @@ public class Osoba {
 		this.plec = plec;
 	}
 
-	public List<String> getSporty() {
+	public String[] getSporty() {
 		return sporty;
 	}
-	
-	public void addSport(String[] sport){
-		for(String s: sport){
-			this.sporty.add(s);
-		}
-	}
 
-	public void setSporty(List<String> sporty) {
+	public void setSporty(String[] sporty) {
 		this.sporty = sporty;
 	}
 
-	public List<String> getKwiatki() {
+	public String[] getKwiatki() {
 		return kwiatki;
 	}
-
-	public void addKwiatki(String[] kwiatki){
-		for(String s: kwiatki){
-			this.kwiatki.add(s);
-		}
-	}
 	
-	public void setKwiatki(List<String> kwiatki) {
+	public void setKwiatki(String[] kwiatki) {
 		this.kwiatki = kwiatki;
 	}
 	

@@ -8,35 +8,35 @@
 </head>
 <body>
 <jsp:useBean id="osoba" class="pl.Servlet.domain.Osoba" scope="session" />
-
-	<form action = "dodajOsobe.jsp">
+<%osoba.setSporty(new String[4]);%>
+<%osoba.setKwiatki(new String[4]);%>
+	<form action = "sprawdzenie.jsp">
 		<h2 align = "center"> Formularz osobowy </h2><br><br>
 		
-		Imie: <input type = "text" name = "imie"> <br>
+		Imie: <input type = "text" name = "imie" value=${osoba.getImie()}> <br>
 		
-		Nazwisko: <input type = "text" name = "nazwisko"> <br><br>
+		Nazwisko: <input type = "text" name = "nazwisko" value=${osoba.getNazwisko()} > <br><br>
 		
 		Plec: <br>
 		 <input type = "radio" name ="plec" value="kobieta">Kobieta<br>
 		 <input type = "radio" name ="plec" value="mezczyzna">Mezczyzna<br><br>
 		 
 		Wybierz ulubione sporty: <br>
-		<input type = "checkbox" name = "sport" value="Pilka nozna"> Pilka nozna<br>
-		<input type = "checkbox" name = "sport" value="Koszykowka"> Koszykowka<br>
-		<input type = "checkbox" name = "sport" value="Hokej"> Hokej<br>
-		sss
+		<input type = "checkbox" name = "sporty" value="Pilka nozna"> Pilka nozna<br>
+		<input type = "checkbox" name = "sporty" value="Koszykowka"> Koszykowka<br>
+		<input type = "checkbox" name = "sporty" value="Hokej"> Hokej<br>
 		<br>
 		Wybierz ulubione kwiatki: <br>
-		<select name="kwiaty" size="4" multiple>
-			<option value="tulipan">Tulipan</option>
-	        <option value="begonia">Begonia</option>
-	        <option value="chryzantemy">Chryzantemy</option>
-		    <option value="nienawidze kwiatkow">Nienawidze kwiatkow</option>
+		<select name="kwiatki" size="4" multiple>
+			<option value="Tulipan">Tulipan</option>
+	        <option value="Begonia">Begonia</option>
+	        <option value="Chryzantemy">Chryzantemy</option>
+		    <option value="Nienawidze kwiatkow">Nienawidze kwiatkow</option>
 		</select>
 		<br>
 		<br>
 		
-		Uwagi: <br><TEXTAREA name="uwagi" ROWS="4" cols="55"></TEXTAREA><br>
+		Uwagi: <br><TEXTAREA name="uwagi" ROWS="4" cols="55">${osoba.getUwagi()}</TEXTAREA><br>
 		<p><input type="submit" value="Wyslij ">
 	</form>
 

@@ -16,19 +16,9 @@ public class PrzechowalniaLudzi {
 		nowaOsoba.setNazwisko(osoba.getNazwisko());
 		nowaOsoba.setPlec(osoba.getPlec());
 		nowaOsoba.setUwagi(osoba.getUwagi());
-		List<String> listaSportow = new ArrayList<String>();
-		List<String> listaKwiatkow = new ArrayList<String>();
-		for(String s: osoba.getSporty()){
-			listaSportow.add(s);
-		}
-		for(String s: osoba.getKwiatki()){
-			listaKwiatkow.add(s);
-		}
-		nowaOsoba.setSporty(listaSportow);
-		nowaOsoba.setKwiatki(listaKwiatkow);
+		nowaOsoba.setSporty(osoba.getSporty());
+		nowaOsoba.setKwiatki(osoba.getKwiatki());
 		bazaLudzi.add(nowaOsoba);
-		osoba.getSporty().clear();
-		osoba.getKwiatki().clear();
 	}
 	
 	public List<Osoba> getLudzie(){

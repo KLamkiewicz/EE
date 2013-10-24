@@ -12,16 +12,33 @@
 <br>
 <%
 for(Osoba o : przechowalniaLudzi.getLudzie()){
-	out.println("<p> Imie: "+o.getImie() +"<br>" );
-	out.println(" Nazwisko: " +o.getNazwisko()+"<br>");
-	out.println("Plec: " + o.getPlec()+"<p>");
-	out.println("<p>Sporty:"+"<br>");
+	out.println("<br> Imie: <br>");
+	if(o.getImie()!=null)
+	out.println(o.getImie() +"<br>" );
+	out.println(" Nazwisko: <br>");
+	if(o.getNazwisko()!=null)
+	out.println(o.getNazwisko()+"<br>");
+	out.println("Plec: <br>");
+	if(o.getPlec()!=null)
+	out.println(o.getPlec()+"<br>");
+	out.println("<br>Sporty:"+"<br>");
 	for(String sport: o.getSporty()){
-		out.println(sport);
-		out.println("<br>");
+		if(sport!=null){
+			out.println(sport);
+			out.println("<br>");
+		}
 	}
+	out.println("<br>Kwiatki:"+"<br>");
+	for(String sport: o.getKwiatki()){
+		if(sport!=null){
+			out.println(sport);
+			out.println("<br>");
+		}
+	}
+	
 	out.println("<br>Uwagi: ");
-	out.println("<br>"+ o.getUwagi()+"<p>");
+	if(o.getUwagi()!=null)
+		out.println("<br>"+ o.getUwagi()+"<br>");
 	out.println("<br><hr>");
 }
 %><br>
