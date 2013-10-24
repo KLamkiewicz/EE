@@ -5,7 +5,6 @@ import java.util.List;
 
 import pl.Servlet.domain.Osoba;
 
-
 public class PrzechowalniaLudzi {
 	
 	private List<Osoba> bazaLudzi = new ArrayList<Osoba>();
@@ -17,12 +16,16 @@ public class PrzechowalniaLudzi {
 		nowaOsoba.setNazwisko(osoba.getNazwisko());
 		nowaOsoba.setPlec(osoba.getPlec());
 		nowaOsoba.setUwagi(osoba.getUwagi());
-		nowaOsoba.setSporty(osoba.getSporty());
+		List<String> listaSportow = new ArrayList<String>();
+		for(String s: osoba.getSporty()){
+			listaSportow.add(s);
+		}
+		nowaOsoba.setSporty(listaSportow);
 		bazaLudzi.add(nowaOsoba);
+		osoba.getSporty().clear();
 	}
 	
 	public List<Osoba> getLudzie(){
 		return bazaLudzi;
 	}
-
 }

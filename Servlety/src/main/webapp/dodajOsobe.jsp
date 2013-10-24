@@ -12,9 +12,8 @@
 <jsp:setProperty name="osoba" property="*" /> 
 
 	<%osoba.setPlec(request.getParameter("plec")) ;%>
-	<%przechowalniaLudzi.add(osoba);%>
 	<%osoba.addSport(request.getParameterValues("sport")); %>
-
+	<%przechowalniaLudzi.add(osoba);%>
 	
 	<h3>Dodano osobe!</h3><br>
 	<b>Imie:</b> ${osoba.getImie()} <br>
