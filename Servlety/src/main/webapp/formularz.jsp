@@ -14,9 +14,9 @@
 	<form action = "sprawdzenie.jsp">
 		<h2 align = "center"> Formularz osobowy </h2><br><br>
 		
-		Imie: <input type = "text" name = "imie" value=${osoba.getImie()}> <br>
+		Imie: <input type = "text" name = "imie" value="${osoba.imie}">  <br>
 		
-		Nazwisko: <input type = "text" name = "nazwisko" value=${osoba.getNazwisko()} > <br><br>
+		Nazwisko: <input type = "text" name = "nazwisko" value="${osoba.nazwisko}" > <br><br>
 		
 		Plec: <br>
 		 <input type = "radio" name ="plec" value="kobieta">Kobieta<br>
