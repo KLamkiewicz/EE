@@ -9,6 +9,37 @@
 <body>
 	<jsp:useBean id="osoba" class="pl.Servlet.domain.Osoba" scope="session" />
 	<jsp:setProperty name="osoba" property="*" />
+	Czy na pewno chcesz dodac: <br><br><br>
+	Imie: ${osoba.imie }<br>
+	Nazwisko: ${osoba.nazwisko }<br>
+	Plec:${osoba.plec}<br>
+	<br>
+	Sporty:<br> <%	
+	for(String sport: osoba.getSporty()){
+		if(sport!=null){
+			out.println(sport);
+			out.println("<br>");
+		}
+	} %>
+	<br>
+	Kwiatki: <br>
+	<% 
+	for(String sport: osoba.getKwiatki()){
+		if(sport!=null){
+			out.println(sport);
+			out.println("<br>");
+		}
+	}
+	%>
+	<br>
+	Uwagi:
+	<%
+	if(osoba.getUwagi()!=null)
+		out.println("<br>"+ osoba.getUwagi()+"<br>");
+	%>
+	
+	<br>
+	
 	<form action = "dodajOsobe.jsp">
 		Dodaj dane<br> 
 		<input type="submit" value="Dodaj">
