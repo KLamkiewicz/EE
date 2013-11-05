@@ -7,8 +7,8 @@
 <title>Dodano osobe</title>
 </head>
 <body>
-<jsp:useBean id="osoba" class="pl.Servlet.domain.Osoba" scope="session" />
-<jsp:useBean id="przechowalniaLudzi" class="pl.Servlet.service.PrzechowalniaLudzi" scope="application"/>
+<jsp:useBean id="osoba" class="pl.servlet.domain.Osoba" scope="session" />
+<jsp:useBean id="przechowalniaLudzi" class="pl.servlet.service.PrzechowalniaLudzi" scope="application"/>
 <jsp:setProperty name="osoba" property="*" /> 
 
 	<%przechowalniaLudzi.add(osoba);%>

@@ -1,7 +1,8 @@
-package pl.Servlet.domain;
+package pl.servlet.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class Osoba {
 	private String imie;
@@ -14,7 +15,6 @@ public class Osoba {
 	private String[] kwiatki = new String[4];
 	
 	public Osoba(){
-		
 	}
 
 	public String getImie() {
@@ -66,3 +66,6 @@ public class Osoba {
 	}
 	
 }
+
+
+

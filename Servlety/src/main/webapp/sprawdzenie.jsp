@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<jsp:useBean id="osoba" class="pl.Servlet.domain.Osoba" scope="session" />
+	<jsp:useBean id="osoba" class="pl.servlet.domain.Osoba" scope="session" />
 	<jsp:setProperty name="osoba" property="*" />
 	Czy na pewno chcesz dodac: <br><br><br>
 	Imie: ${osoba.imie }<br>

@@ -1,9 +1,9 @@
-package pl.Servlet.service;
+package pl.servlet.service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import pl.Servlet.domain.Osoba;
+import pl.servlet.domain.Osoba;
 
 public class PrzechowalniaLudzi {
 	
