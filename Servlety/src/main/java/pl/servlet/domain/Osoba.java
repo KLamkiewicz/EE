@@ -1,20 +1,50 @@
 package pl.servlet.domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+
+import javax.faces.validator.LengthValidator;
 
 
 public class Osoba {
 	private String imie;
 	private String nazwisko;
 	private String uwagi;
-	private String plec;
-	//private List<String> sporty = new ArrayList<String>();
-	//private List<String> kwiatki = new ArrayList<String>();
-	private String[] sporty = new String[4];
-	private String[] kwiatki = new String[4];
+	private String plec;	
+	private String[] sporty;
+	private String[] kwiatki;
+	
+	public enum sportyE{
+		Koszykowka("Koszykowka"),
+		Hokej("Hokej"),
+		Badminton("Badminton"),
+		Pilka("Pilka nozna");
+		
+		String nazwa;
+		private sportyE(String nazwa) {
+			this.nazwa = nazwa;
+		}
+		
+		@Override
+		public String toString() {
+			return nazwa;
+		}
+	}
+	public enum kwiatkiE{
+		Tulipan,
+		Begonia,
+		Chryzantemy,
+		Roza;
+	}
+	public enum plecE{
+		Kobieta,
+		Mezczyzna;
+	}
 	
 	public Osoba(){
+		sporty = new String[sportyE.values().length];
+		kwiatki = new String[kwiatkiE.values().length];
 	}
 
 	public String getImie() {

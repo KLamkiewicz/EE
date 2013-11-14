@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@page import="pl.servlet.domain.Osoba.kwiatkiE"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import ="pl.servlet.domain.Osoba"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -18,69 +19,57 @@ int lenK = osoba.getKwiatki().length;
 		<h2 align = "center"> Formularz osobowy </h2><br><br>
 		
 		Imie: <input type = "text" name = "imie" value="${osoba.imie}">  <br>
-		
 		Nazwisko: <input type = "text" name = "nazwisko" value="${osoba.nazwisko}" > <br><br>
 		
-		Plec: <br>
-		 <input type = "radio" name ="plec" value="kobieta" <%if(osoba.getPlec()!=null) if(osoba.getPlec().equals("kobieta"))out.print("Checked");%>>Kobieta<br>
-		 <input type = "radio" name ="plec" value="mezczyzna" <%if(osoba.getPlec()!=null)if(osoba.getPlec().equals("mezczyzna"))out.print("Checked");%>>Mezczyzna<br><br>
-		 
-		Wybierz ulubione sporty: <br>
+
+		Plec:<br>
+		<%
+			for(Osoba.plecE p : Osoba.plecE.values()){
+				out.print("<input type=\"radio\" name=\"plec\" value = "+ p);
+				if(osoba.getPlec()!=null)
+					if(osoba.getPlec().equals(p.toString()))
+						out.print(" Checked");
+				out.print(">");
+				out.print(p.toString()+"<br>");
+			}
+		%><br>
 		
-		<input type = "checkbox" name = "sporty" value="Pilka nozna" 
-		<%if(go)
-			for(int i=0; i<len; i++)
-				if(osoba.getSporty()[i].equals("Pilka nozna"))
-					out.print("Checked");%>> Pilka nozna<br>
 		
-		<input type = "checkbox" name = "sporty" value="Koszykowka"
-		<%if(go)
-			for(int i=0; i<len; i++)
-				if(osoba.getSporty()[i].equals("Koszykowka"))
-					out.print("Checked");%>> Koszykowka<br>
+		Ulubione sporty:<br> 
+		<%
+			for(Osoba.sportyE s : Osoba.sportyE.values()){
+				out.print(" <input type = \"checkbox\" name=\"sporty\" value = \"" + s.toString() + "\" ");
+				if(go){
+					for(int i=0; i<len; i++)
+						if(osoba.getSporty()[i].equals(s.toString()))
+							out.print("Checked");
+				}
+				out.print(" >" + s.toString() + " <br>");
+			}
+		%> <br>
 		
-		<input type = "checkbox" name = "sporty" value="Hokej"
-		<%if(go)
-			for(int i=0; i<len; i++)
-				if(osoba.getSporty()[i].equals("Hokej"))
-					out.print("Checked");%>> Hokej<br>
-		
-		<br>
-		Wybierz ulubione kwiatki: <br>
-		<select name="kwiatki" size="4" multiple>
-		<option value="Tulipan"
-		<%if(goK)
-			for(int i=0; i<lenK; i++)
-				if(osoba.getKwiatki()[i].equals("Tulipan"))
-					out.print("selected");%>>Tulipan</option>
-			
-        <option value="Begonia"
-		<%if(goK)
-			for(int i=0; i<lenK; i++)
-				if(osoba.getKwiatki()[i].equals("Begonia"))
-					out.print("selected");%>>Begonia</option>
-		
-        <option value="Chryzantemy"
-		<%if(goK)
-			for(int i=0; i<lenK; i++)
-				if(osoba.getKwiatki()[i].equals("Chryzantemy"))
-					out.print("selected");%>>Chryzantemy</option>
-		
-	    <option value="Nienawidze kwiatkow"
-		<%if(goK)
-			for(int i=0; i<lenK; i++)
-				if(osoba.getKwiatki()[i].equals("Nienawidze kwiatkow"))
-					out.print("selected");%>>Nienawidze kwiatkow</option>
-		</select>
-		<br>
-		<br>
+		Ulubione kwiatki:<br> 
+		<%
+		out.print("<select name=\"kwiatki\" size="+ len + " multiple> ");
+			for(Osoba.kwiatkiE k: Osoba.kwiatkiE.values()){
+				out.print("<option value = \"" + k.toString() + "\" ");
+					if(goK){
+						for(int i=0; i<lenK; i++)
+							if(osoba.getKwiatki()[i].equals(k.toString()))
+								out.print(" selected");
+					}
+				out.print(">"+k.toString()+"</option>");
+			}
+		out.print("</select>");
+		%><br><br>
 		
 		Uwagi: <br><TEXTAREA name="uwagi" ROWS="4" cols="55">${osoba.getUwagi()}</TEXTAREA><br>
 		<p><input type="submit" value="Wyslij ">
-	</form>
 	
-<%osoba.setSporty(new String[4]);%>
-<%osoba.setKwiatki(new String[4]);%>
-
+	</form>
+<!-- 
+<%osoba.setSporty(new String[Osoba.sportyE.values().length]);%>
+<%osoba.setKwiatki(new String[Osoba.kwiatkiE.values().length]);%>
+ -->
 </body>
 </html>
